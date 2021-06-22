@@ -1,6 +1,8 @@
 .navigation {
   height: 6rem;
   width: 100%;
+  position: sticky;
+  top: 0px;
 
   a,
   span {
