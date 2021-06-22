@@ -141,6 +141,19 @@ h6 {
   }
 }
 
+details.toc summary {
+  font-size: 1.8rem;
+  font-weight: bolder;
+  line-height: 2rem;
+}
+aside.toc {
+  float: right;
+  border: 1px solid $alt-bg-color;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
 b,
 strong {
   font-weight: 700;
