@@ -1,22 +1,23 @@
 @mixin navigation_dark {
   .navigation {
+    background-color: $nav-bg-color-dark;
 
     a,
     span {
-      color: $fg-color-dark;
+      color: $nav-fg-color-dark;
     }
 
     a {
 
       &:hover,
       &:focus {
-        color: $link-color-dark;
+        color: $nav-link-color-dark;
       }
     }
 
     .navigation-list {
-        background-color: $bg-color-dark;
       @media only screen and (max-width: $narrow-screen) {
+        background-color: $nav-bg-color-dark;
         border-top: solid 2px $alt-bg-color-dark;
         border-bottom: solid 2px $alt-bg-color-dark;
       }
@@ -25,6 +26,11 @@
         @media only screen and (max-width: $narrow-screen) {
           border-top: 2px solid $fg-color-dark;
         }
+
+
+      }
+      .navigation-item.navigation-item-active {
+        background-color: $nav-active-bg-color-dark;
       }
     }
 
@@ -41,7 +47,7 @@
 
       &:hover,
       &:focus {
-        color: $link-color-dark;
+        color: $nav-link-color-dark;
       }
     }
 

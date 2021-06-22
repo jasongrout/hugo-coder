@@ -3,6 +3,8 @@
   width: 100%;
   position: sticky;
   top: 0px;
+  background-color: $nav-bg-color;
+  color: $nav-fg-color;
 
   a,
   span {
@@ -11,20 +13,22 @@
     font-family: $font-family;
     font-weight: 600;
     line-height: 6rem;
-    color: $fg-color;
+    color: $nav-fg-color;
   }
 
   a {
 
     &:hover,
     &:focus {
-      color: $link-color;
+      color: $nav-link-color;
     }
   }
 
   .navigation-title {
     letter-spacing: 0.1rem;
     text-transform: uppercase;
+    display: inline-block;
+    height: 100%;
   }
 
   .navigation-list {
@@ -43,7 +47,7 @@
       padding: 0;
       max-height: 0;
       width: 100%;
-      background-color: $bg-color;
+      background-color: $nav-bg-color;
       border-top: solid 2px $alt-bg-color;
       border-bottom: solid 2px $alt-bg-color;
       transition: opacity 0.25s, max-height 0.15s linear;
@@ -61,13 +65,26 @@
         a,
         span {
           line-height: 5rem;
+          width: 100%
         }
       }
 
       a,
       span {
-        margin-left: 1rem;
-        margin-right: 1rem;
+        display: inline-block;
+        height: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      &.navigation-item-active {
+        background-color: $nav-active-bg-color;
+      }
+
+      svg {
+        height: 2.5rem;
+        width: 2.5rem;
+        vertical-align: -10%;
       }
     }
 
@@ -131,16 +148,6 @@
       &:focus {
         color: $alt-fg-color;
       }
-    }
-  }
-
-  i {
-    color: $fg-color;
-    cursor: pointer;
-
-    &:hover,
-    &:focus {
-      color: $link-color;
     }
   }
 }
