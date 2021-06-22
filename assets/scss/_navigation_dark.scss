@@ -15,21 +15,21 @@
     }
 
     .navigation-list {
-      @media only screen and (max-width: 768px) {
         background-color: $bg-color-dark;
+      @media only screen and (max-width: $narrow-screen) {
         border-top: solid 2px $alt-bg-color-dark;
         border-bottom: solid 2px $alt-bg-color-dark;
       }
 
       .menu-separator {
-        @media only screen and (max-width: 768px) {
+        @media only screen and (max-width: $narrow-screen) {
           border-top: 2px solid $fg-color-dark;
         }
       }
     }
 
     #menu-toggle {
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: $narrow-screen) {
         &:checked+label>i {
           color: $alt-bg-color-dark;
         }

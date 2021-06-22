@@ -8,7 +8,7 @@
       &:focus {
         color: $link-color-dark;
 
-        @media only screen and (max-width: 768px) {
+        @media only screen and (max-width: $narrow-screen) {
           color: $alt-fg-color-dark;
         }
       }

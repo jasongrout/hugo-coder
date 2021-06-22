@@ -31,7 +31,7 @@
     margin-bottom: 0;
     margin-top: 0;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: $narrow-screen) {
       position: absolute;
       top: 6rem;
       right: 0;
@@ -52,7 +52,7 @@
       margin: 0;
       position: relative;
 
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: $narrow-screen) {
         float: none !important;
         text-align: center;
 
@@ -70,13 +70,13 @@
     }
 
     .separator {
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: $narrow-screen) {
         display: none;
       }
     }
 
     .menu-separator {
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: $narrow-screen) {
         border-top: 2px solid $fg-color;
         margin: 0 8rem;
 
@@ -100,7 +100,7 @@
   #menu-toggle {
     display: none;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: $narrow-screen) {
       &:checked+label>i {
         color: $alt-bg-color;
       }
@@ -116,7 +116,7 @@
   .menu-button {
     display: none;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: $narrow-screen) {
       display: block;
       margin: 1.8rem 0;
       font-size: 2.4rem;

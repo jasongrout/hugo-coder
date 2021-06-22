@@ -26,7 +26,7 @@ body.rtl {
           margin-left: 3rem;
           margin-right: 0;
 
-          @media only screen and (max-width: 768px) {
+          @media only screen and (max-width: $narrow-screen) {
             text-align: right;
           }
         }
