@@ -13,13 +13,11 @@
         {{ with .Site.Menus.main}}
           {{ range sort . }}
             {{ $active := "" }}
-            {{ $isMenu := (eq $currentPage.Params.identifier .Identifier) }}
-            {{ $isMenu = or $isMenu (eq $currentPage.Title .Name) }}
-            {{ if $isMenu }} 
+            {{ if eq $currentPage.Title .Name }} 
               {{ $active = "navigation-item-active" }}
-            {{ end }}  
+            {{ end }}
               <li class="navigation-item {{ $active }}">
-              <a class="navigation-link" href="{{ .URL | relLangURL }}">{{ .Name | safeHTML }}</a>
+              <a class="navigation-link {{ with .Params.class }}{{ . }}{{ end }}" href="{{ .URL | relLangURL }}">{{ .Name | safeHTML }}</a>
             </li>
           {{ end }}
         {{ end }}
