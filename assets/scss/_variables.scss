@@ -20,7 +20,8 @@ Liberation Mono,
 Menlo,
 monospace;
 
-$narrow-screen: 600px !default;
+$narrow-screen: 768px !default;
+$nav-height: 6rem !default;
 
 // Colors
 $bg-color: #fafafa !default;
@@ -35,7 +36,8 @@ $nav-link-color: #42a5f5 !default;
 
 // Dark colors
 $bg-color-dark: #212121 !default;
-$fg-color-dark: #dadada !default;
+// $fg-color-dark: #dadada !default;
+$fg-color-dark: #ffffff !default;
 $alt-bg-color-dark: #424242 !default;
 $alt-fg-color-dark: #dadada !default;
 $link-color-dark: #42a5f5 !default;
