@@ -147,7 +147,9 @@ details.toc summary {
   line-height: 2rem;
 }
 aside.toc {
-  float: right;
+  @media only screen and (min-width: $narrow-screen) {
+    float: right;
+  }
   border: 1px solid $alt-bg-color;
   margin-left: 2rem;
   margin-bottom: 2rem;
