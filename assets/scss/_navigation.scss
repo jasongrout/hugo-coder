@@ -6,6 +6,9 @@
   background-color: $nav-bg-color;
   color: $nav-fg-color;
 
+  /* Set to a high z-index so math goes under instead of over */
+  z-index: 100;
+
   a,
   span {
     display: inline;
