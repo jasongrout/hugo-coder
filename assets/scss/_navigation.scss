@@ -124,7 +124,14 @@
 
     @media only screen and (max-width: $narrow-screen) {
       &:checked+label>i {
-        color: $alt-bg-color;
+        color: $nav-fg-color;
+        &:hover, &:focus {
+          color: $nav-link-color;
+        }
+        &::before {
+          /* Change icon to a close icon */
+          content: "\f00d";
+        }
       }
 
       &:checked+label+ul {
