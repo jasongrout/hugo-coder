@@ -147,7 +147,7 @@ details.toc summary {
   line-height: 2rem;
 }
 aside.toc {
-  @media only screen and (min-width: $narrow-screen) {
+  @media only screen and (min-width: $wide-screen) {
     float: right;
   }
   border: 1px solid $alt-bg-color;

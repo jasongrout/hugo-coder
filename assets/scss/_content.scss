@@ -186,7 +186,7 @@
     }
 
     .avatar {
-      @media only screen and (min-width: $narrow-screen) {
+      @media only screen and (min-width: $wide-screen) {
         float: right;
         margin-left: 2rem;
         margin-top: 4rem;
