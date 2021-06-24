@@ -65,6 +65,9 @@
         float: none !important;
         text-align: center;
 
+        &.social {
+          display: inline-block;
+        }
         a,
         span {
           line-height: 5rem;
@@ -138,6 +141,7 @@
         visibility: visible;
         opacity: 1;
         max-height: 100rem;
+        text-align: center;
       }
     }
   }

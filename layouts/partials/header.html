@@ -16,7 +16,7 @@
             {{ if eq $currentPage.Title .Name }} 
               {{ $active = "navigation-item-active" }}
             {{ end }}
-              <li class="navigation-item {{ $active }}">
+              <li class="navigation-item {{ $active }} {{ with .Params.liclass }}{{ . }}{{ end }}">
               <a class="navigation-link {{ with .Params.class }}{{ . }}{{ end }}" href="{{ .URL | relLangURL }}">{{ .Name | safeHTML }}</a>
             </li>
           {{ end }}
