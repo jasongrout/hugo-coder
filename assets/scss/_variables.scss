@@ -1,7 +1,8 @@
 // Fonts
-$font-family: -apple-system,
-BlinkMacSystemFont,
-"Segoe UI",
+$font-family:
+// -apple-system,
+// BlinkMacSystemFont,
+// "Segoe UI",
 Roboto,
 Oxygen-Sans,
 Ubuntu,
@@ -31,7 +32,8 @@ $link-color: #1565c0 !default;
 
 // Dark colors
 $bg-color-dark: #212121 !default;
-$fg-color-dark: #dadada !default;
+// $fg-color-dark: #dadada !default;
+$fg-color-dark: #ffffff !default;
 $alt-bg-color-dark: #424242 !default;
 $alt-fg-color-dark: #dadada !default;
 $lighter-alt-bg-color-dark: #4f4f4f !default;
@@ -59,6 +61,23 @@ $bg-color-notice-warning-content: #ffca281a !default;
 $fg-color-notice-error-icon: #e53935 !default;
 $bg-color-notice-error-title: #f443361a !default;
 $bg-color-notice-error-content: #ef53501a !default;
+
+// Responsive breakpoints
+$narrow-screen: 810px !default;
+$wide-screen:   811px !default;
+$nav-height:    6rem !default;
+
+// Navigation colors (light)
+$nav-bg-color:        #183977 !default;
+$nav-active-bg-color: #2259bd !default;
+$nav-fg-color:        $bg-color !default;
+$nav-link-color:      #42a5f5 !default;
+
+// Navigation colors (dark)
+$nav-bg-color-dark:        #464646 !default;
+$nav-active-bg-color-dark: $bg-color-dark !default;
+$nav-fg-color-dark:        white !default;
+$nav-link-color-dark:      #42a5f5 !default;
 
 // Path to FontAwesome TTF/WOFF files.
 $fa-font-path: "../fonts" !default;
