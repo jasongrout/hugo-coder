@@ -18,9 +18,32 @@
 {{ end }}
 
 <body class="preload-transitions {{ $csClass }}{{ if .Site.Params.rtl }} rtl{{ end }}">
+
+<script>
+  // Inline theme detection to prevent FOUC (especially on Firefox).
+  const body = document.body;
+  const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+  if (localStorage.getItem("colorscheme")) {
+      setTheme(localStorage.getItem("colorscheme"));
+  } else if (body.classList.contains('colorscheme-light') || body.classList.contains('colorscheme-dark')) {
+      setTheme(body.classList.contains("colorscheme-dark") ? "dark" : "light");
+  } else {
+      setTheme(darkModeMediaQuery.matches ? "dark" : "light");
+  }
+
+  function setTheme(theme) {
+      body.classList.remove('colorscheme-auto');
+      let inverse = theme === 'dark' ? 'light' : 'dark';
+      body.classList.remove('colorscheme-' + inverse);
+      body.classList.add('colorscheme-' + theme);
+  }
+</script>
+
   {{ partial "float" . }}
   <main class="wrapper">
     {{ partial "header.html" . }}
+    {{ partial "breadcrumb.html" . }}
 
     <div class="content">
       {{ block "content" . }}{{ end }}
