@@ -1,6 +1,13 @@
 .navigation {
-  height: 6rem;
+  height: $nav-height;
   width: 100%;
+  position: sticky;
+  top: 0px;
+  background-color: $nav-bg-color;
+  color: $nav-fg-color;
+
+  /* Set to a high z-index so math goes under instead of over */
+  z-index: 100;
 
   a,
   span {
@@ -8,20 +15,23 @@
     font-size: 1.7rem;
     font-family: $font-family;
     font-weight: 600;
-    color: $fg-color;
+    line-height: 6rem;
+    color: $nav-fg-color;
   }
 
   a {
 
     &:hover,
     &:focus {
-      color: $link-color;
+      color: $nav-link-color;
     }
   }
 
   .navigation-title {
     letter-spacing: 0.1rem;
     text-transform: uppercase;
+    display: inline-block;
+    height: 100%;
   }
 
   .navigation-list {
@@ -30,9 +40,9 @@
     margin-bottom: 0;
     margin-top: 0;
 
-    @media only screen and (max-width: 768px) {
-      position: relative;
-      top: 2rem;
+    @media only screen and (max-width: $narrow-screen) {
+      position: absolute;
+      top: 6rem;
       right: 0;
       z-index: 5;
       visibility: hidden;
@@ -40,7 +50,7 @@
       padding: 0;
       max-height: 0;
       width: 100%;
-      background-color: $bg-color;
+      background-color: $nav-bg-color;
       border-top: solid 2px $alt-bg-color;
       border-bottom: solid 2px $alt-bg-color;
       transition: opacity 0.25s, max-height 0.15s linear;
@@ -51,31 +61,49 @@
       margin: 0;
       position: relative;
 
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: $narrow-screen) {
         float: none !important;
         text-align: center;
 
+        &.social {
+          display: inline-block;
+          margin-left: 10px;
+          margin-right: 10px;
+        }
         a,
         span {
           line-height: 5rem;
+          width: 100%
         }
       }
 
       a,
       span {
-        margin-left: 1rem;
-        margin-right: 1rem;
+        display: inline-block;
+        height: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      &.navigation-item-active {
+        background-color: $nav-active-bg-color;
+      }
+
+      svg {
+        height: 2.5rem;
+        width: 2.5rem;
+        vertical-align: -10%;
       }
     }
 
     .separator {
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: $narrow-screen) {
         display: none;
       }
     }
 
     .menu-separator {
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: $narrow-screen) {
         border-top: 2px solid $fg-color;
         margin: 0 8rem;
 
@@ -99,19 +127,23 @@
   #menu-toggle {
     display: none;
 
-    @media only screen and (max-width: 768px) {
-      display: initial;
-      position: relative;
-      visibility: hidden;
-
+    @media only screen and (max-width: $narrow-screen) {
       &:checked+label>i {
-        color: $alt-bg-color;
+        color: $nav-fg-color;
+        &:hover, &:focus {
+          color: $nav-link-color;
+        }
+        &::before {
+          /* Change icon to a close icon */
+          content: "\f00d";
+        }
       }
 
       &:checked+label+ul {
         visibility: visible;
         opacity: 1;
         max-height: 100rem;
+        text-align: center;
       }
 
       &:focus-visible+label {
@@ -123,8 +155,7 @@
   .menu-button {
     display: none;
 
-    @media only screen and (max-width: 768px) {
-      position: relative;
+    @media only screen and (max-width: $narrow-screen) {
       display: block;
       font-size: 2.4rem;
       font-weight: 400;
@@ -134,18 +165,8 @@
 
       &:hover,
       &:focus {
-        color: $alt-fg-color;
+        color: $nav-link-color;
       }
-    }
-  }
-
-  i {
-    color: $fg-color;
-    cursor: pointer;
-
-    &:hover,
-    &:focus {
-      color: $link-color;
     }
   }
 }
