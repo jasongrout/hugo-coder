@@ -1,0 +1,33 @@
+.breadcrumb {
+  margin: 0 auto;
+  max-width: 90rem;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  ol {
+    display: inline;
+    list-style: none;
+    padding: 0px;
+
+    li {
+      display: inline;
+
+      a {
+        color: $fg-color;
+
+        &:hover, &:focus {
+          color: $link-color;
+        }
+      }
+    }
+
+    li::after {
+      content: " → ";
+    }
+
+    li:last-child::after {
+      content: "";
+    }
+  }
+}

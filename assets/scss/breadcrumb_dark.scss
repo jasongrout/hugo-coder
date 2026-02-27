@@ -1,0 +1,26 @@
+@mixin breadcrumb_dark {
+  .breadcrumb {
+
+    a,
+    span {
+      color: $fg-color-dark;
+    }
+
+    a {
+      &:hover,
+      &:focus {
+        color: $link-color-dark;
+      }
+    }
+  }
+}
+
+body.colorscheme-dark {
+  @include breadcrumb_dark();
+}
+
+body.colorscheme-auto {
+  @media (prefers-color-scheme: dark) {
+    @include breadcrumb_dark();
+  }
+}
