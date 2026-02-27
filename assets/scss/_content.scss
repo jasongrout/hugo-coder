@@ -3,21 +3,21 @@
   display: flex;
   margin-top: 1.6rem;
   margin-bottom: 3.2rem;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: $narrow-screen) {
     margin-top: 1rem;
     margin-bottom: 1.6rem;
   }
 
   header {
-    margin-top: 6.4rem;
-    margin-bottom: 3.2rem;
+    margin-top: 6rem;
+    margin-bottom: 3rem;
 
     h1 {
       font-size: 4.2rem;
       line-height: 4.6rem;
       margin: 0;
 
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: $narrow-screen) {
         font-size: 4rem;
         line-height: 4.4rem;
       }
@@ -119,60 +119,60 @@
   height: auto;
   border-radius: 50%;
 
-  @media only screen and (max-width: 768px) {
-    width: 17rem;
+  @media only screen and (max-width: $narrow-screen) {
+    width: 10rem;
   }
 }
 
-.list {
-  ul {
-    margin: 3.2rem 0 3.2rem 0;
-    list-style: none;
-    padding: 0;
+// .list {
+//   ul {
+//     margin: 3.2rem 0 3.2rem 0;
+//     list-style: none;
+//     padding: 0;
 
-    li {
-      font-size: 1.8rem;
+//     li {
+//       font-size: 1.8rem;
 
-      @media only screen and (max-width: 768px) {
-        margin: 1.6rem 0 1.6rem 0;
-      }
+//       @media only screen and (max-width: $narrow-screen) {
+//         margin: 1.6rem 0 1.6rem 0;
+//       }
 
-      .date {
-        display: inline-block;
-        flex: 1;
-        width: 20rem;
-        text-align: right;
-        margin-right: 3rem;
+//       .date {
+//         display: inline-block;
+//         flex: 1;
+//         width: 20rem;
+//         text-align: right;
+//         margin-right: 3rem;
 
-        @media only screen and (max-width: 768px) {
-          display: block;
-          text-align: left;
-        }
-      }
+//         @media only screen and (max-width: $narrow-screen) {
+//           display: block;
+//           text-align: left;
+//         }
+//       }
 
-      .title {
-        font-size: 1.8rem;
-        flex: 2;
-        color: $fg-color;
-        font-family: $font-family;
-        font-weight: 700;
+//       .title {
+//         font-size: 1.8rem;
+//         flex: 2;
+//         color: $fg-color;
+//         font-family: $font-family;
+//         font-weight: 700;
 
-        &:hover,
-        &:focus {
-          color: $link-color;
-        }
-      }
-    }
-  }
+//         &:hover,
+//         &:focus {
+//           color: $link-color;
+//         }
+//       }
+//     }
+//   }
 
-  ul:not(.pagination) {
-    li {
-      @media only screen and (min-width: 768.1px) {
-        display: flex;
-      }
-    }
-  }
-}
+//   ul:not(.pagination) {
+//     li {
+//       @media only screen and (min-width: 768.1px) {
+//         display: flex;
+//       }
+//     }
+//   }
+// }
 
 .centered {
   display: flex;
@@ -192,12 +192,24 @@
       margin-bottom: 0.5rem;
       font-size: 2.4rem;
 
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: $narrow-screen) {
         font-size: 2rem;
       }
     }
 
-    ul {
+    .about-description {
+      text-align: left;
+    }
+
+    .avatar {
+      @media only screen and (min-width: $wide-screen) {
+        float: right;
+        margin-left: 2rem;
+        margin-top: 4rem;
+      }
+    }
+
+    ul.social {
       list-style: none;
       margin: 3rem 0 1rem 0;
       padding: 0;
@@ -219,8 +231,12 @@
             color: $link-color;
           }
 
-          @media only screen and (max-width: 768px) {
-            font-size: 1.5rem;
+          @media only screen and (max-width: $narrow-screen) {
+            font-size: 1.4rem;
+          }
+
+          i {
+            font-size: 3.2rem;
           }
         }
       }
@@ -235,7 +251,7 @@
       margin-bottom: 0.5rem;
       font-size: 4.6rem;
 
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: $narrow-screen) {
         font-size: 3.2rem;
       }
     }
@@ -245,7 +261,7 @@
       margin-bottom: 3.2rem;
       font-size: 3.2rem;
 
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: $narrow-screen) {
         font-size: 2.8rem;
       }
     }
