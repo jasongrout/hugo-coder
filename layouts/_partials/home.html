@@ -5,6 +5,10 @@
     {{ partialCached "home/author.html" . }}
 
     {{ partialCached "home/social.html" . }}
+
+    <div class="about-description">
+        {{ .Content }}
+    </div>
   </div>
 
   {{ partialCached "home/extensions.html" . }}
