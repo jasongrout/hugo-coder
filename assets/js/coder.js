@@ -112,12 +112,8 @@ function setTheme(theme) {
 function updateToggleTitle() {
     if (darkModeToggle) {
         const labels = { light: "Light", dark: "Dark", auto: "Auto (system)" };
-        const icons = { light: "fa-sun", dark: "fa-moon", auto: "fa-circle-half-stroke" };
         darkModeToggle.title = "Color scheme: " + labels[currentMode];
-        const icon = darkModeToggle.querySelector("i");
-        if (icon) {
-            icon.className = "fa-solid " + icons[currentMode] + " fa-fw";
-        }
+        body.dataset.colormode = currentMode;
     }
 }
 

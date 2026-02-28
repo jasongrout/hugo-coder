@@ -5,6 +5,15 @@
   <title>{{ block "title" . }}{{ .Site.Params.HeadTitle | default .Site.Title }}{{ end }}</title>
   {{ partial "head.html" . }}
 
+  {{ if not .Site.Params.hideColorSchemeToggle }}
+  <style>
+    #dark-mode-toggle .theme-icon { display: none !important; }
+    body[data-colormode="light"] #dark-mode-toggle .theme-icon--light { display: inline-block !important; }
+    body[data-colormode="dark"] #dark-mode-toggle .theme-icon--dark { display: inline-block !important; }
+    body[data-colormode="auto"] #dark-mode-toggle .theme-icon--auto { display: inline-block !important; }
+  </style>
+  {{ end }}
+
   {{ if and .Site.Params.counterdev .Site.Params.counterdev.id }}
   {{- partial "analytics/counterdev" . -}}
   {{ end }}
@@ -27,6 +36,7 @@
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
     var stored = localStorage.getItem("colorscheme");
+    body.dataset.colormode = stored || "auto";
     if (stored === "light" || stored === "dark") {
         setTheme(stored);
     }
