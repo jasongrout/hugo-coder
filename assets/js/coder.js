@@ -2,25 +2,45 @@ const body = document.body;
 const darkModeToggle = document.getElementById('dark-mode-toggle');
 const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-// Check if user preference is set, if not check value of body class for light or dark else it means that colorscheme = auto
-if (localStorage.getItem("colorscheme")) {
-    setTheme(localStorage.getItem("colorscheme"));
-} else if (body.classList.contains('colorscheme-light') || body.classList.contains('colorscheme-dark')) {
-    setTheme(body.classList.contains("colorscheme-dark") ? "dark" : "light");
+// Current mode tracks the user's choice: "light", "dark", or "auto"
+let currentMode = localStorage.getItem("colorscheme") || "auto";
+
+if (currentMode === "auto") {
+    // Let CSS media queries handle it via colorscheme-auto class
+    document.documentElement.style['color-scheme'] = darkModeMediaQuery.matches ? "dark" : "light";
 } else {
-    setTheme(darkModeMediaQuery.matches ? "dark" : "light");
+    setTheme(currentMode);
 }
 
 if (darkModeToggle) {
+    updateToggleTitle();
     darkModeToggle.addEventListener('click', () => {
-        let theme = body.classList.contains("colorscheme-dark") ? "light" : "dark";
-        setTheme(theme);
-        rememberTheme(theme);
+        // Cycle: light → dark → auto → light
+        if (currentMode === "light") {
+            currentMode = "dark";
+        } else if (currentMode === "dark") {
+            currentMode = "auto";
+        } else {
+            currentMode = "light";
+        }
+
+        if (currentMode === "auto") {
+            localStorage.removeItem("colorscheme");
+            body.classList.remove('colorscheme-light', 'colorscheme-dark');
+            body.classList.add('colorscheme-auto');
+            document.documentElement.style['color-scheme'] = darkModeMediaQuery.matches ? "dark" : "light";
+        } else {
+            localStorage.setItem("colorscheme", currentMode);
+            setTheme(currentMode);
+        }
+        updateToggleTitle();
     });
 }
 
-darkModeMediaQuery.addListener((event) => {
-    setTheme(event.matches ? "dark" : "light");
+darkModeMediaQuery.addEventListener('change', (event) => {
+    if (currentMode === "auto") {
+        document.documentElement.style['color-scheme'] = event.matches ? "dark" : "light";
+    }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -90,6 +110,18 @@ function setTheme(theme) {
     // Create and send event
     const event = new Event('themeChanged');
     document.dispatchEvent(event);
+}
+
+function updateToggleTitle() {
+    if (darkModeToggle) {
+        const labels = { light: "Light", dark: "Dark", auto: "Auto (system)" };
+        const icons = { light: "fa-sun", dark: "fa-moon", auto: "fa-circle-half-stroke" };
+        darkModeToggle.title = "Color scheme: " + labels[currentMode];
+        const icon = darkModeToggle.querySelector("i");
+        if (icon) {
+            icon.className = "fa-solid " + icons[currentMode] + " fa-fw";
+        }
+    }
 }
 
 function rememberTheme(theme) {

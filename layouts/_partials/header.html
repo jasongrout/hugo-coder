@@ -23,6 +23,13 @@
             </li>
           {{ end }}
         {{ end }}
+        {{ if not .Site.Params.hideColorSchemeToggle }}
+          <li class="navigation-item social">
+            <a id="dark-mode-toggle" class="navigation-link social" href="javascript:void(0)" title="Toggle color scheme">
+              <i class="fa-solid fa-circle-half-stroke fa-fw" aria-hidden="true"></i>
+            </a>
+          </li>
+        {{ end }}
         {{ if hugo.IsMultilingual }}
           {{ $node := . }}
           {{ .Scratch.Set "separator" true }}
