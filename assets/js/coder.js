@@ -6,8 +6,7 @@ const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 let currentMode = localStorage.getItem("colorscheme") || "auto";
 
 if (currentMode === "auto") {
-    // Let CSS media queries handle it via colorscheme-auto class
-    document.documentElement.style['color-scheme'] = darkModeMediaQuery.matches ? "dark" : "light";
+    setTheme(darkModeMediaQuery.matches ? "dark" : "light");
 } else {
     setTheme(currentMode);
 }
@@ -26,9 +25,7 @@ if (darkModeToggle) {
 
         if (currentMode === "auto") {
             localStorage.removeItem("colorscheme");
-            body.classList.remove('colorscheme-light', 'colorscheme-dark');
-            body.classList.add('colorscheme-auto');
-            document.documentElement.style['color-scheme'] = darkModeMediaQuery.matches ? "dark" : "light";
+            setTheme(darkModeMediaQuery.matches ? "dark" : "light");
         } else {
             localStorage.setItem("colorscheme", currentMode);
             setTheme(currentMode);
@@ -39,7 +36,7 @@ if (darkModeToggle) {
 
 darkModeMediaQuery.addEventListener('change', (event) => {
     if (currentMode === "auto") {
-        document.documentElement.style['color-scheme'] = event.matches ? "dark" : "light";
+        setTheme(event.matches ? "dark" : "light");
     }
 });
 
